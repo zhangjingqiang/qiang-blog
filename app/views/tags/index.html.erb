@@ -1,2 +1,4 @@
-<%= render "tags/charts/pie" %>
-<%= render "tags/charts/column" %>
+<% if @tags.present? %>
+  <%= render "tags/charts/pie" %>
+  <%= render "tags/charts/column" %>
+<% end %>
