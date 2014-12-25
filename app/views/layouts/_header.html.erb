@@ -1,0 +1,10 @@
+<div class="blog-masthead">
+  <div class="container">
+    <nav class="blog-nav">
+      <a class="blog-nav-item<%= ' active' if params[:controller] == 'blogs' %>" href="/">Home</a>
+      <a class="blog-nav-item<%= ' active' if params[:controller] == 'archives' %>" href="<%= archives_path %>">Archives</a>
+      <a class="blog-nav-item<%= ' active' if params[:controller] == 'tags' %>" href="<%= tags_path %>">Tags</a>
+      <a class="blog-nav-item<%= ' active' if params[:controller] == 'about' %>" href="<%= about_path %>">About</a>
+    </nav>
+  </div>
+</div>

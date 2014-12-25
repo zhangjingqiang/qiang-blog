@@ -1,0 +1,53 @@
+<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+  <div class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>
+      <% if !@about.nil? %>
+        <%= auto_link simple_format(@about.try(:body)), :html => { :target => '_blank' } %>
+      <% end %>
+    </p>
+  </div>
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ol class="list-unstyled">
+      <% @archives.each do |k, v| %>
+        <% if params[:year_month] == k %>
+          <li><%= k.to_s + " (" + v.to_s + ")" %></li>
+        <% else %>
+          <li><%= link_to k.to_s + " (" + v.to_s + ")", archive_path(k) %></li>
+        <% end %>
+      <% end %>
+    </ol>
+  </div>
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ol class="list-unstyled">
+      <% @tags.each do |tag| %>
+        <% if params[:tag_id] == tag_name(tag.id) %>
+          <li><%= tag.name.to_s + " (" + tag.blogs.count.to_s + ")" %></li>
+        <% else %>
+          <li><%= link_to tag.name.to_s + " (" + tag.blogs.count.to_s + ")", "/tag/#{tag.name}" %></li>
+        <% end %>
+      <% end %>
+    </ol>
+  </div>
+  <div class="sidebar-module">
+    <h4>Elsewhere</h4>
+    <ol class="list-unstyled">
+      <li>
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-square-o fa-stack-2x"></i>
+          <i class="fa fa-twitter fa-stack-1x"></i>
+        </span>
+        <a href="<%= Settings.twitter %>">Twitter</a>
+      </li>
+      <li>
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-square-o fa-stack-2x"></i>
+          <i class="fa fa-facebook fa-stack-1x"></i>
+        </span>
+        <a href="<%= Settings.facebook %>">Facebook</a>
+      </li>
+    </ol>
+  </div>
+</div><!-- /.blog-sidebar -->

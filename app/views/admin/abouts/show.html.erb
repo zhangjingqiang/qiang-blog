@@ -1,0 +1,13 @@
+<h1 class="page-header">Show About</h1>
+
+<dl class="dl-horizontal">
+  <dt><strong>Body:</strong></dt>
+  <dd><%= simple_format(@about.body) %></dd>
+</dl>
+
+<%= link_to "Back", admin_abouts_path, :class => 'btn btn-default'  %>
+<%= link_to "Edit", edit_admin_about_path(@about), :class => 'btn btn-default' %>
+<%= link_to "Delete", admin_about_path(@about),
+              :method => 'delete',
+              :data => { :confirm => 'Are you sure?' },
+              :class => 'btn btn-danger' %>

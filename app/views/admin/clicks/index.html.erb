@@ -1,0 +1,23 @@
+<h1 class="page-header">Clicks</h1>
+
+<table class="table table-bordered table-striped table-hover table-condensed">
+  <thead>
+    <tr>
+      <th>Blog ID</th>
+      <th>IP</th>
+      <th>Created At</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @clicks.each do |click| %>
+      <tr>
+        <td><%= link_to blog_permalink(click.blog_id), admin_blog_path(blog_entity(click.blog_id)) %></td>
+        <td><%= click.ip %></td>
+        <td><%=l click.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @clicks, renderer: BootstrapPagination::Rails %>

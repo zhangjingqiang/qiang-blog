@@ -1,0 +1,15 @@
+<div class="col-sm-8 blog-main">
+  <div class="blog-post">
+    <h2 class="blog-post-title"><%= @blog.try(:title) %></h2>
+    <p class="blog-post-meta"><%= @blog.created_at.strftime('%Y-%m-%d %H:%M:%S') %></p>
+    <p><%= markdown(@blog.body) %></p>
+    <p>
+      <% @blog.tags.each do |tag| %>
+        <%= link_to "/tag/#{tag.name}" do %>
+          <span class="label label-<%= random_color %>"><%= tag.name %></span>
+        <% end %>
+      <% end %>
+    </p>
+  </div><!-- /.blog-post -->
+</div><!-- /.blog-main -->
+<%= render 'layouts/blog_sidebar' %>

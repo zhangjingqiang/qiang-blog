@@ -1,0 +1,25 @@
+<h1 class="page-header">Show Blog</h1>
+
+<dl class="dl-horizontal">
+  <dt><strong>Title:</strong></dt>
+  <dd><%= @blog.title %></dd>
+  <dt><strong>Permalink:</strong></dt>
+  <dd><%= @blog.permalink %></dd>
+  <dt><strong>Body:</strong></dt>
+  <dd><%= markdown(@blog.body) %></dd>
+  <dt><strong>Tags:</strong></dt>
+  <dd>
+    <% @blog.tags.each do |tag| %>
+      <%= link_to "/admin/tags/#{tag.name}/blogs" do %>
+        <span class="label label-<%= random_color %>"><%= tag.name %></span>
+      <% end %>
+    <% end %>
+  </dd>
+</dl>
+
+<%= link_to "Back", admin_blogs_path, :class => 'btn btn-default'  %>
+<%= link_to "Edit", edit_admin_blog_path(@blog), :class => 'btn btn-default' %>
+<%= link_to "Delete", admin_blog_path(@blog),
+              :method => 'delete',
+              :data => { :confirm => 'Are you sure?' },
+              :class => 'btn btn-danger' %>

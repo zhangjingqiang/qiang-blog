@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= Settings.site_name %> | Dashboard</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link href="../css/font-awesome.css" rel="stylesheet" />
+    <link href="../css/dashboard.css" rel="stylesheet" />
+    <script src="../js/pace.min.js"></script>
+    <link href="../css/pace.css" rel="stylesheet" />
+    <script src="../js/docs.min.js"></script>
+    <link rel="shortcut icon" href="favicon.ico">
+  </head>
+  <body>
+    <%= render 'layouts/admin/header' %>
+    <div class="container-fluid">
+      <div class="row">
+        <%= render 'layouts/admin/sidebar' %>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <%= render 'layouts/scroll_top' %>
+  </body>
+</html>

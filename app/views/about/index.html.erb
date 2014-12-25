@@ -1,0 +1,5 @@
+<% if !@about.nil? %>
+  <div class="jumbotron">
+    <%= auto_link simple_format(@about.try(:body)), :html => { :target => '_blank' } %>
+  </div>
+<% end %>

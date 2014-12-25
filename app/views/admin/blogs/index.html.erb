@@ -1,0 +1,10 @@
+<h1 class="page-header">Blogs</h1>
+
+<%= render 'admin/blogs' %>
+
+<%= will_paginate @blogs, renderer: BootstrapPagination::Rails %>
+<div style="clear:both;"></div>
+
+<%= link_to "New",
+            new_admin_blog_path,
+            :class => 'btn btn-primary' %>

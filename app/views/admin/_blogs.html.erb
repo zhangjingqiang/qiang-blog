@@ -1,0 +1,40 @@
+<table class="table table-bordered table-striped table-hover table-condensed">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Permalink</th>
+      <th>Body</th>
+      <th>Tags</th>
+      <th>Created At</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= highlight blog.title, params[:q], :highlighter => '<span style="background-color:yellow;"><a href="search?q=\1">\1</a></span>' %></td>
+        <td><%= blog.permalink %></td>
+        <td><%= highlight truncate(blog.body, length: 50), params[:q], :highlighter => '<span style="background-color:yellow;"><a href="search?q=\1">\1</a></span>' %></td>
+        <td>
+          <% blog.tags.each do |tag| %>
+            <%= link_to "/admin/tags/#{tag.name}/blogs" do %>
+              <span class="label label-<%= random_color %>"><%= tag.name %></span>
+            <% end %>
+          <% end %>
+        </td>
+        <td><%=l blog.created_at %></td>
+        <td>
+          <%= link_to admin_blog_path(blog), :class => "btn btn-info" do %>
+            Show
+          <% end %>
+          <%= link_to edit_admin_blog_path(blog), :class => "btn btn-success" do %>
+            Edit
+          <% end %>
+          <%= link_to admin_blog_path(blog), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" do %>
+            Delete
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

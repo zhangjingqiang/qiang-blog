@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= Settings.site_name %></title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link href="../css/font-awesome.css" rel="stylesheet" />
+    <link href="../css/blog.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/highcharts.js"></script>
+    <script src="../js/pace.min.js"></script>
+    <link href="../css/pace.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="favicon.ico">
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= render 'layouts/blog_header' %>
+      <div class="row">
+        <%= yield %>
+      </div><!-- /.row -->
+    </div> <!-- /container -->
+    <%= render 'layouts/footer' %>
+    <%= render 'layouts/scroll_top' %>
+    <%= render 'layouts/google_analytics' %>
+  </body>
+</html>

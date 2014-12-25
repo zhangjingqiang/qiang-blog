@@ -1,0 +1,60 @@
+<script type="text/javascript">
+$(function () {
+    $('#column').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Column'
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            type: 'category',
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Number'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+          pointFormat: 'tag: <b>{point.y}</b>'
+        },
+        series: [{
+            name: 'Tag',
+            data: [
+              <% @tags.each do |tag| %>
+                ['<%= tag.name %>', <%= tag.blogs.count %>],
+              <% end %>
+            ],
+            dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: '#FFFFFF',
+                align: 'right',
+                x: 4,
+                y: 10,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif',
+                    textShadow: '0 0 3px black'
+                }
+            }
+        }]
+    });
+});
+</script>
+
+<div id="column"></div>

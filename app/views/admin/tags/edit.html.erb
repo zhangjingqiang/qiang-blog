@@ -1,0 +1,5 @@
+<h1 class="page-header">Edit Tag</h1>
+
+<%= bootstrap_form_for @tag, :url => { :action => "update" } do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+<% end %>
