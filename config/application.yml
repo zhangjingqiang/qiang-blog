@@ -5,6 +5,9 @@ defaults: &defaults
   twitter: https://twitter.com/zhangjingqiang
   facebook: https://www.facebook.com/zhangjingqiang
   about_me: http://about.me/zhangjingqiang
+  
+  addthis: zhangjingqiang
+  disqus: qiang-blog
 
 development:
   <<: *defaults

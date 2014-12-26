@@ -2,6 +2,8 @@
   <div class="blog-post">
     <h2 class="blog-post-title"><%= @blog.try(:title) %></h2>
     <p class="blog-post-meta"><%= @blog.created_at.strftime('%Y-%m-%d %H:%M:%S') %></p>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <div class="addthis_native_toolbox"></div>
     <p><%= markdown(@blog.body) %></p>
     <p>
       <% @blog.tags.each do |tag| %>
@@ -13,3 +15,4 @@
   </div><!-- /.blog-post -->
 </div><!-- /.blog-main -->
 <%= render 'layouts/blog_sidebar' %>
+<div id="disqus_thread"></div>
