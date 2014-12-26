@@ -18,10 +18,13 @@ class BlogsController < ApplicationController
       blogs = case ActiveRecord::Base.connection.adapter_name
       when 'SQLite'
         Blog.where("created_at like ?", params[:year_month] + "%")
+      when 'MySQL'
+        Blog.where("created_at like ?", params[:year_month] + "%")
       when 'PostgreSQL'
         year_month_arr = params[:year_month].split('-')
         Blog.where("date_part('year', created_at) = ? and date_part('month', created_at) = ?", year_month_arr[0], year_month_arr[1])
       else
+        Blog.all
       end
       @blogs = blogs.paginate(:page => params[:page])
     end
