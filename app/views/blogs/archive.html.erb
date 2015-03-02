@@ -1,10 +1,4 @@
 <div class="col-sm-8 blog-main">
-  <% @blogs.each do |blog| %>
-    <div class="blog-post">
-      <h2 class="blog-post-title"><%= link_to blog.try(:title), blog_path(blog) %></h2>
-      <p class="blog-post-meta"><%= blog.created_at.strftime('%Y-%m-%d %H:%M:%S') %></p>
-    </div><!-- /.blog-post -->
-  <% end %>
-  <%= will_paginate @blogs, renderer: BootstrapPagination::Rails %>
-</div><!-- /.blog-main -->
+  <%= render 'archives/archives' %>
+</div>
 <%= render 'layouts/blog_sidebar' %>

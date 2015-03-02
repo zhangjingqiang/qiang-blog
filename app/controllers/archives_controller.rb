@@ -1,5 +1,7 @@
 class ArchivesController < ApplicationController
+  include BlogsHelper
+  
   def index
-    @blogs = Blog.paginate(:page => params[:page])
+    @year_month_blog_count = year_month_blog_count('all')
   end
 end

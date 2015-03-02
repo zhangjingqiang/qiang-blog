@@ -1,0 +1,10 @@
+<% @year_month_blog_count.each do |k, v| %>
+  <div><span style="font-size: 200%; font-weight: bold;"><%= k %></span> <%= pluralize(v, 'post') %></div>
+  <hr>
+  <% year_month_blogs(k).each do |blog| %>
+    <div class="blog-post">
+      <h2 class="blog-post-title"><%= link_to blog.try(:title), blog_path(blog) %></h2>
+      <p class="blog-post-meta"><%= blog.created_at.strftime('%Y-%m-%d %H:%M:%S') %></p>
+    </div>
+  <% end %>
+<% end %>
