@@ -1,13 +1,13 @@
 defaults: &defaults
   site_name: Qiang Blog
-  site_desc: Just another zhangjingqiang's blog.
-  
-  twitter: https://twitter.com/zhangjingqiang
-  facebook: https://www.facebook.com/zhangjingqiang
-  about_me: http://about.me/zhangjingqiang
-  
-  addthis: zhangjingqiang
-  disqus: qiang-blog
+  site_desc: Just another <%= ENV['AUTHOR'] %>'s blog.
+
+  twitter: https://twitter.com/<%= ENV['TWITTER'] %>
+  facebook: https://www.facebook.com/<%= ENV['FACEBOOK'] %>
+  about_me: http://about.me/<%= ENV['ABOUT_ME'] %>
+
+  addthis: <%= ENV['ADDTHIS'] %>
+  disqus: <%= ENV['DISQUS'] %>
 
 development:
   <<: *defaults
