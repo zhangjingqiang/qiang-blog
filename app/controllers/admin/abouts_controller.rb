@@ -27,9 +27,9 @@ class Admin::AboutsController < ApplicationController
       else
         format.html { render action: 'new' }
         format.json { render json: @about.errors, status: :unprocessable_entity }
-      end 
-    end 
-  end 
+      end
+    end
+  end
 
   def update
     respond_to do |format|
@@ -39,8 +39,8 @@ class Admin::AboutsController < ApplicationController
       else
         format.html { render action: 'edit' }
         format.json { render json: @about.errors, status: :unprocessable_entity }
-      end 
-    end 
+      end
+    end
   end
 
   def destroy
@@ -54,7 +54,7 @@ class Admin::AboutsController < ApplicationController
   private
     def set_about
       @about ||= About.find(params[:id])
-    end 
+    end
 
     def about_params
       params.require(:about).permit(:body)
