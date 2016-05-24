@@ -32,11 +32,11 @@ class BlogsController < ApplicationController
     @about = About.first
     @tags = Tag.all
     @blogs = Blog.paginate(:page => params[:page], :per_page => 10)
-    blogs = Blog.all
+    blog_created_at = Blog.pluck(:created_at)
 
     @archives = Hash.new{|h, key| h[key] = []}
-    blogs.each do |blog|
-      @archives[blog.created_at.strftime('%Y-%m')] << 1
+    blog_created_at.each do |c|
+      @archives[c.strftime('%Y-%m')] << 1
     end
     @archives = Hash[@archives.map { |k, v| [k, v.reduce(:+)]}]
   end
